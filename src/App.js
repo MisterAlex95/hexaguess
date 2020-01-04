@@ -35,7 +35,7 @@ function App() {
       removeWrongAnswer();
     }
     setSelected(null);
-  });
+  }, [selected]);
 
   function clickOnColor(color) {
     setSelected(color);
@@ -81,7 +81,9 @@ function App() {
 
   return (
     <div className="App">
-      <span className="guessColor">{answer}</span>
+      <span className="guessColor" style={{ color: winner ? answer : "grey" }}>
+        {answer}
+      </span>
       <div className="choices">{circles}</div>
       {winner && displayAnswer()}
       <span className="guessColor">GUESS THE COLOR</span>
